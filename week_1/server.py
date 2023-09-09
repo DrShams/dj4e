@@ -15,7 +15,9 @@ def createServer():
 
             rd = clientsocket.recv(5000).decode()
             pieces = rd.split("\n")
-            if ( len(pieces) > 0 ) : print(pieces[0])
+            if ( len(pieces) > 0 ):
+                print("Somebody sent request to server")
+                print(pieces[0])
 
             data = "HTTP/1.1 200 OK\r\n"
             data += "Content-Type: text/html; charset=utf-8\r\n"
