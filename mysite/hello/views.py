@@ -23,7 +23,9 @@ class IndexView(TemplateView):
         
         # Get the number of visits from session
         num_visits = self.request.session.get('num_visits', 0) + 1
+        
         self.request.session['num_visits'] = num_visits
+        if num_visits > 3 : del(self.request.session['num_visits'])
         context['num_visits'] = num_visits
         
         return context

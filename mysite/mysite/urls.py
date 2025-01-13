@@ -11,7 +11,9 @@ SITE_ROOT = os.path.join(BASE_DIR, 'site')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
-    path('hello/', include('hello.urls')),                                                                                           
+    path('hello/', include('hello.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('autos/', include('autos.urls')),                                                                                   
     re_path(r'^site/(?P<path>.*)$', serve,
         {'document_root': SITE_ROOT, 'show_indexes': True},
         name='site_path'
